@@ -57,7 +57,7 @@ export default function FeaturedPromoCards() {
         </Link>
 
         {/* Inverters Card */}
-        <Link href="/store?category=inverter" className="group">
+        <Link href="/store?category=inverters" className="group">
           <div className="bg-green-50 rounded-lg overflow-hidden relative h-[280px] md:h-[350px] hover:shadow-lg transition-all">
             <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between z-10">
               <div>
@@ -79,7 +79,7 @@ export default function FeaturedPromoCards() {
         </Link>
 
         {/* Batteries Card */}
-        <Link href="/store?category=battery" className="group">
+        <Link href="/store?category=batteries" className="group">
           <div className="bg-amber-50 rounded-lg overflow-hidden relative h-[280px] md:h-[350px] hover:shadow-lg transition-all">
             <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between z-10">
               <div>

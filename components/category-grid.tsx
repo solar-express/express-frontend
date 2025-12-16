@@ -32,11 +32,11 @@ const categories = [
     link: "/store?category=inverters",
   },
   {
-    name: "Complete Systems",
-    icon: Home,
+    name: "EV Bikes",
+    icon: Battery,
     color: "bg-purple-100",
     iconColor: "text-purple-600",
-    link: "/store?category=complete-systems",
+    link: "/store?category=ev-bikes",
   },
   {
     name: "Installation",
