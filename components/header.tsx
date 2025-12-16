@@ -49,7 +49,6 @@ const iconMapping = {
   "inverters": Zap,
   "batteries": Battery,
   "tools": Wrench,
-  "complete-systems": Home,
   "accessories": ShieldCheck,
 }
 
@@ -64,7 +63,6 @@ const generateNavItems = (categories: Category[]) => {
 		href: cat.route
 	}))
 	const additionalItems = [
-		{ name: "Insurance", href: "/insurance" },
 		{ name: "Installment Plans", href: "/installments" },
 		{ name: "Blogs", href: "/blog" },
 		{ name: "Contact", href: "/contact" },
@@ -73,7 +71,6 @@ const generateNavItems = (categories: Category[]) => {
 }
 
 const departmentNavItems = [
-	{ name: "Insurance", href: "/insurance" },
 	{ name: "Installment Plans", href: "/installments" },
 	{ name: "Blogs", href: "/blog" },
 	{ name: "Contact", href: "/contact" },
