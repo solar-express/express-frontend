@@ -58,10 +58,20 @@ const getDefaultIcon = (categorySlug: string) => {
 
 const generateNavItems = (categories: Category[]) => {
 	const baseItems = [{ name: "Home", href: "/" }]
-	const categoryItems = categories.slice(0, 5).map(cat => ({
+	
+	// Define the desired order of categories
+	const categoryOrder = ["batteries", "inverters", "solar-panels", "accessories", "ev-bikes"]
+	
+	// Sort categories according to the desired order
+	const sortedCategories = categoryOrder
+		.map(slug => categories.find(cat => cat.slug === slug))
+		.filter((cat): cat is Category => cat !== undefined)
+	
+	const categoryItems = sortedCategories.map(cat => ({
 		name: cat.name,
 		href: cat.route
 	}))
+	
 	const additionalItems = [
 		{ name: "Installment Plans", href: "/installments" },
 		{ name: "Blogs", href: "/blog" },
