@@ -21,7 +21,7 @@ const nextConfig = {
     const backendUrl =
       process.env.NEXT_PUBLIC_API_BASE ||
       process.env.BACKEND_URL ||
-      "http://localhost:3000";
+      "http://172.17.158.6:3000";
 
     return [
       {
