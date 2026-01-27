@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+// Enable ISR for 404 page to cache responses and reduce repeated bot hits
+export const revalidate = 3600; // Revalidate every hour
+
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] py-16 px-4">

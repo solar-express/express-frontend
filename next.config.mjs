@@ -46,6 +46,32 @@ const nextConfig = {
   // Enable compression
   compress: true,
 
+  // Add cache headers for static assets to reduce edge requests
+  async headers() {
+    return [
+      {
+        // Cache favicon.ico aggressively to reduce repeated requests
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Cache all static assets in /public aggressively
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+
   // Optimize images for faster loading
   images: {
     formats: ["image/webp", "image/avif"],
