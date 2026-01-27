@@ -102,7 +102,7 @@ export default function Home() {
       
 
       {/* Recently Viewed Products */}
-      <RecentlyViewed />
+      {/* <RecentlyViewed /> */}
 
       {/* Bottom Banner */}
       <MiniBottomSolarAd />

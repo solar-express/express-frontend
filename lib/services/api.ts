@@ -7,7 +7,7 @@ interface ApiResponse {
 }
 
 const RAW_API_BASE = process.env.NEXT_PUBLIC_API_BASE || process.env.NEXT_PUBLIC_API_URL || ''
-const baseURL = RAW_API_BASE ? RAW_API_BASE.replace(/\/$/, '') : ''
+const baseURL = process.env.NODE_ENV === 'production' ? (RAW_API_BASE ? RAW_API_BASE.replace(/\/$/, '') : '') : ''
 const buildUrl = (path: string) => baseURL ? `${baseURL}${path.startsWith('/') ? path : `/${path}`}` : (path.startsWith('/') ? path : `/${path}`)
 
 // Token management for production cross-origin deployments
