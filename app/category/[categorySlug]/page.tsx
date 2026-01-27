@@ -1,6 +1,9 @@
 import CategoryClient from "../CategoryClient"
 import { Metadata } from "next"
 
+// Enable ISR to cache category pages and reduce edge requests for dynamic routes
+export const revalidate = 3600; // Revalidate every hour
+
 // Server wrapper: provide SEO metadata on the server while rendering the
 // existing client UI inside `CategoryClient`. Also embed JSON-LD structured
 // data (BreadcrumbList, Organization and a small ItemList of products) so
@@ -13,7 +16,7 @@ export async function generateMetadata({ params }: { params: { categorySlug: str
 
   try {
     if (!apiBase) return { title: `Category - ${slug}` }
-    const res = await fetch(`${apiBase}/api/category/${slug}`, { cache: 'no-store' })
+    const res = await fetch(`${apiBase}/api/category/${slug}`, { cache: 'default' })
     if (!res.ok) return { title: `Category - ${slug}` }
     const cat = await res.json()
     const title = cat.name || `Category - ${slug}`
@@ -70,7 +73,7 @@ export default async function CategoryPage({ params }: { params: { categorySlug:
   // Small product item list (fetch a small sample to include name + url)
   if (apiBase) {
     try {
-      const productsRes = await fetch(`${apiBase}/api/products?category=${encodeURIComponent(slug)}&limit=10`, { cache: 'no-store' })
+      const productsRes = await fetch(`${apiBase}/api/products?category=${encodeURIComponent(slug)}&limit=10`, { cache: 'default' })
       if (productsRes.ok) {
         const productsJson = await productsRes.json()
         const sampleProducts = productsJson.products || []

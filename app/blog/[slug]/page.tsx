@@ -1,6 +1,9 @@
 import BlogClient from "./BlogClient"
 import { Metadata } from "next"
 
+// Enable ISR to cache blog pages and reduce edge requests for dynamic routes
+export const revalidate = 3600; // Revalidate every hour
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const resolvedParams = await params
   const slug = resolvedParams.slug
@@ -10,7 +13,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const siteBase = process.env.NEXT_PUBLIC_SITE_URL || ""
     if (!apiBase) return { title: "Blog" }
 
-    const res = await fetch(`${apiBase}/api/blogs/${slug}`, { cache: "no-store" })
+    const res = await fetch(`${apiBase}/api/blogs/${slug}`, { cache: "default" })
     const json = await res.json()
     if (json?.blog) {
       const b = json.blog
@@ -73,7 +76,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 
   try {
     if (apiBase) {
-      const res = await fetch(`${apiBase}/api/blogs/${slug}`, { cache: "no-store" })
+      const res = await fetch(`${apiBase}/api/blogs/${slug}`, { cache: "default" })
       const json = await res.json()
       if (json?.blog) {
         blog = json.blog
