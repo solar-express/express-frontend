@@ -1,6 +1,9 @@
 import ProductClientSection from "./ProductClientSection";
 import { Metadata } from "next";
 
+// Enable ISR for product pages
+export const revalidate = 3600; // Revalidate every hour
+
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   // `params` can be a resolver; await it before accessing properties per Next.js guidance
   const resolvedParams = await params;
@@ -11,7 +14,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     const siteBase = process.env.NEXT_PUBLIC_SITE_URL || "";
     if (!apiBase) return { title: "Product" };
 
-    const res = await fetch(`${apiBase}/api/products/${id}`, { cache: "no-store" });
+    const res = await fetch(`${apiBase}/api/products/${id}`, { cache: "force-cache" });
     const json = await res.json();
     if (json?.success && json.product) {
       const p = json.product;
@@ -66,7 +69,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
   try {
     const apiBase = process.env.NEXT_PUBLIC_API_BASE;
     if (apiBase) {
-      const res = await fetch(`${apiBase}/api/products/${id}`, { cache: "no-store" });
+      const res = await fetch(`${apiBase}/api/products/${id}`, { cache: "force-cache" });
       const json = await res.json();
       if (json?.success && json.product) product = json.product;
     }
