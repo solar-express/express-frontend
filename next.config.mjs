@@ -33,7 +33,12 @@ const nextConfig = {
 
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ["@/components"],
+    optimizePackageImports: [
+      "@/components",
+      "lucide-react",
+      "date-fns",
+      "@radix-ui/react-icons",
+    ],
     scrollRestoration: true,
   },
 
@@ -52,6 +57,16 @@ const nextConfig = {
       {
         // Cache favicon.ico aggressively to reduce repeated requests
         source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Cache all static assets (JS, CSS, images, fonts) aggressively
+        source: '/:path*.(js|css|png|jpg|jpeg|svg|webp|ico|woff2)',
         headers: [
           {
             key: 'Cache-Control',
