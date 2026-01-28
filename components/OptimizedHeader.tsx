@@ -262,6 +262,7 @@ export default function OptimizedHeader() {
               href="/categories"
               className="block py-2 md:py-0 text-gray-700 hover:text-primary font-medium"
               onClick={() => setIsMenuOpen(false)}
+              prefetch={false}
             >
               All Categories
             </Link>
@@ -272,6 +273,7 @@ export default function OptimizedHeader() {
                 href={`/categories/${category.slug}`}
                 className="block py-2 md:py-0 text-gray-700 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
               >
                 {category.name}
               </Link>
@@ -281,6 +283,7 @@ export default function OptimizedHeader() {
               href="/brands"
               className="block py-2 md:py-0 text-gray-700 hover:text-primary"
               onClick={() => setIsMenuOpen(false)}
+              prefetch={false}
             >
               Brands
             </Link>
@@ -289,6 +292,7 @@ export default function OptimizedHeader() {
               href="/deals"
               className="block py-2 md:py-0 text-red-600 hover:text-red-700 font-medium"
               onClick={() => setIsMenuOpen(false)}
+              prefetch={false}
             >
               Deals
             </Link>

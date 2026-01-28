@@ -1,5 +1,7 @@
 "use client"
 
+export const runtime = 'nodejs'
+
 import type React from "react"
 
 import { useState, Suspense } from "react"

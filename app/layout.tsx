@@ -10,9 +10,15 @@ import { FloatingCartButton } from "@/components/floating-cart-button"
 import { ToastProvider } from "@/components/ui/toast"
 import { QueryProvider } from "@/providers/QueryProvider"
 import { ErrorBoundary } from '@/components/error-boundary'
-import { Analytics } from '@vercel/analytics/next'
+// import { Analytics } from '@vercel/analytics/next'
 import { OrganizationSchema } from '@/components/structured-data'
 import { WebSiteSchema } from '@/components/structured-data'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 
 export const metadata = {
@@ -95,7 +101,7 @@ export default function RootLayout({
           rel="stylesheet" 
         />
       </head>
-      <body className="font-inter">
+      <body className={inter.className}>
         <OrganizationSchema />
         <WebSiteSchema />
         <ErrorBoundary>
@@ -107,7 +113,8 @@ export default function RootLayout({
                     <Toaster position="top-center" />
                     <Header />
                     <main className="min-h-screen">{children}</main>
-                    <Analytics />
+                    {/* <Analytics /> */}
+                    {/* <Analytics /> */}
                     <Footer />
                     <FloatingCartButton />
                   </AnalyticsProvider>

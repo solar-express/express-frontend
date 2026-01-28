@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -11,7 +12,15 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <img src="/logo-crop.PNG" alt="Solar Express Logo" className="h-12 md:h-12" />
+              <Image
+                src="/logo-crop.PNG"
+                alt="Solar Express Logo"
+                width={200}
+                height={50}
+                priority
+                unoptimized
+                className="h-12 md:h-12 w-auto"
+              />
             </div>
             <h3 className="text-lg md:text-xl font-bold mb-4">Contact Us</h3>
             <ul className="space-y-3">
@@ -35,17 +44,17 @@ export default function Footer() {
             <h3 className="text-lg md:text-xl font-bold mb-4">About</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/about" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/careers" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="/brand-partnership" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/brand-partnership" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Brand Partnership
                 </Link>
               </li>
@@ -57,22 +66,22 @@ export default function Footer() {
             <h3 className="text-lg md:text-xl font-bold mb-4">Help</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/payment-info" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/payment-info" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Payment Information
                 </Link>
               </li>
               <li>
-                <Link href="/shipping-info" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/shipping-info" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Shipping Information
                 </Link>
               </li>
               <li>
-                <Link href="/faqs" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/faqs" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/support" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Support
                 </Link>
               </li>
@@ -84,27 +93,27 @@ export default function Footer() {
             <h3 className="text-lg md:text-xl font-bold mb-4">Policy</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/privacy" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/terms" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/returns" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Return Policy
                 </Link>
               </li>
               <li>
-                <Link href="/refunds" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/refunds" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Refund Policy
                 </Link>
               </li>
               <li>
-                <Link href="/exchanges" className="text-sm md:text-base hover:text-[#f26522] transition-colors">
+                <Link href="/exchanges" className="text-sm md:text-base hover:text-[#f26522] transition-colors" prefetch={false}>
                   Exchange Policy
                 </Link>
               </li>

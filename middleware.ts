@@ -27,18 +27,22 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Block bad bots
+  const userAgent = request.headers.get('user-agent') || ''
+  const blockedBots = ['AhrefsBot', 'MJ12bot', 'SemrushBot']
+  if (blockedBots.some(bot => userAgent.includes(bot))) {
+    return new NextResponse('Blocked', { status: 403 })
+  }
+
   return NextResponse.next()
 }
 
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+      ONLY run middleware on real pages
+      NOT static files
+    */
+    '/((?!_next/static|_next/image|favicon.ico|logo|fonts|images|.*\\.(?:png|jpg|jpeg|svg|webp|ico|woff2)).*)',
   ],
 }
