@@ -15,6 +15,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
+  // Enable static export for Cloudflare deployment
+  output: 'export',
+
   // API rewrites to proxy to backend
   async rewrites() {
     // Use environment variable for backend URL, fallback to localhost for development
