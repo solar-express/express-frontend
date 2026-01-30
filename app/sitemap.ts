@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3000'
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.solarexpress.pk'
 
